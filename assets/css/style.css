@@ -1,5 +1,5 @@
 /* =====================================================================
-   WOOD & ART — Design System
+   C&G PLANEJADOS — Design System
    Paleta: madeira tostada + creme + âmbar | Tipo: Cormorant + Manrope
    ===================================================================== */
 
@@ -176,14 +176,18 @@ em { font-style: italic; color: var(--rust); }
   letter-spacing: -0.01em;
 }
 .brand-mark {
-  width: 36px; height: 36px;
+  min-width: 42px; height: 36px;
+  padding: 0 0.5rem;
   display: grid; place-items: center;
   background: var(--ink);
   color: var(--paper);
   border-radius: var(--radius);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 .brand-text small {
   display: block;
