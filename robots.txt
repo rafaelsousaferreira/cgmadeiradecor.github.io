@@ -1,5 +1,23 @@
+# robots.txt — C&G Planejados
+# https://cgplanejados.com.br/robots.txt
+
 User-agent: *
 Allow: /
 
-# Sitemap (descomente quando tiver):
-# Sitemap: https://cgplanejados.com.br/sitemap.xml
+# Bloqueia páginas que não devem aparecer em SERPs
+Disallow: /404.html
+Disallow: /*?*search=
+Disallow: /*?*page=
+
+# Aceita todos os crawlers principais
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap
+Sitemap: https://cgplanejados.com.br/sitemap.xml

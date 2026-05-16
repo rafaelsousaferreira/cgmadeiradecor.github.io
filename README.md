@@ -7,17 +7,25 @@ Site 100% estático: roda em GitHub Pages, Netlify, Vercel ou qualquer servidor 
 ## Estrutura
 
 ```
-wood-art/
+cg-planejados/
 ├── index.html           Página inicial (hero, sobre, categorias, destaques, depoimentos, orçamento, contato)
 ├── produtos.html        Catálogo com busca, filtros e paginação
 ├── produto.html         Detalhe de um produto (?id=N)
 ├── depoimentos.html     Lista e formulário de depoimentos
 ├── 404.html             Página de erro
-├── robots.txt
+├── sitemap.xml          Sitemap para crawlers de busca
+├── robots.txt           Diretivas para crawlers
 ├── .nojekyll            Evita o Jekyll processar o site no GitHub Pages
 ├── LICENSE
 ├── README.md
 └── assets/
+    ├── css/style.css
+    ├── images/
+    │   ├── og-image.jpg     Imagem de compartilhamento (1200×630)
+    │   ├── og-image.svg     Fonte da OG image (editável)
+    │   └── produtos/        Fotos dos produtos (subir aqui)
+    └── js/
+        ├── main.js          Utilitários globais + formulário
     ├── css/style.css
     ├── js/
     │   ├── main.js          Utilitários globais, nav, FAB, formulário de orçamento
@@ -149,3 +157,45 @@ O `.nojekyll` na raiz é importante — ele impede que o GitHub Pages tente proc
 ## Licença
 
 MIT. Ver `LICENSE`.
+
+## SEO
+
+O site tem SEO completo configurado:
+
+- **Meta tags únicas por página**: title, description, canonical, hreflang
+- **Open Graph**: imagem 1200×630, título, descrição (Facebook, WhatsApp, LinkedIn)
+- **Twitter Cards**: summary_large_image
+- **JSON-LD estruturado**:
+  - Home: `LocalBusiness` + `FurnitureStore` + `WebSite` com SearchAction
+  - Catálogo: `CollectionPage` + `ItemList` (todos os 15 produtos)
+  - Página de produto: `Product` com preço, disponibilidade, imagem (gerado dinamicamente)
+  - Depoimentos: `Organization` com `aggregateRating` real
+  - Breadcrumbs em todas as páginas internas
+- **Sitemap.xml** com 24 URLs (páginas + produtos + filtros de categoria)
+- **Robots.txt** com sitemap declarado
+
+### Após subir para produção
+
+1. **Google Search Console** (https://search.google.com/search-console):
+   - Adicione a propriedade `https://cgplanejados.com.br`
+   - Confirme propriedade (DNS ou HTML tag)
+   - Submeta o sitemap: `https://cgplanejados.com.br/sitemap.xml`
+
+2. **Google Business Profile** (https://www.google.com/business):
+   - Reivindique/crie o perfil de C&G Planejados em Camaçari
+   - Use os dados do JSON-LD `LocalBusiness` para preencher
+
+3. **Bing Webmaster Tools** (opcional): submeta o sitemap também.
+
+### Testar antes de publicar
+
+- **Rich Results Test** (Google): https://search.google.com/test/rich-results — cole o URL ou o HTML para validar JSON-LD
+- **Facebook Sharing Debugger**: https://developers.facebook.com/tools/debug/ — testa OG image
+- **Twitter Card Validator**: https://cards-dev.twitter.com/validator
+- **Schema Markup Validator**: https://validator.schema.org/
+
+### Editar OG image
+
+O arquivo fonte está em `assets/images/og-image.svg`. Para regerar a `og-image.jpg`:
+- Edite o SVG
+- Use qualquer conversor SVG→JPG (Inkscape, browser print, ferramentas online) para 1200×630px, qualidade 85
