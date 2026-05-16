@@ -36,13 +36,14 @@ WA.renderNav = function (active) {
         '<span class="brand-text">C&amp;G Planejados<small>Marcenaria e Decoração</small></span>' +
       '</a>' +
       '<ul class="nav-links">' +
-        navLink('index.html',      'Início',     current === 'home') +
-        navLink('produtos.html',   'Catálogo',   current === 'produtos') +
-        navLink('depoimentos.html','Depoimentos',current === 'depoimentos') +
-        navLink('index.html#sobre','Sobre',      false) +
-        navLink('index.html#contato','Contato',  false) +
+        navLink('index.html',          'Início',       current === 'home') +
+        navLink('produtos.html',       'Catálogo',     current === 'produtos') +
+        navLink('configurador.html',   'Configurador', current === 'configurador') +
+        navLink('depoimentos.html',    'Depoimentos',  current === 'depoimentos') +
+        navLink('index.html#sobre',    'Sobre',        false) +
+        navLink('index.html#contato',  'Contato',      false) +
       '</ul>' +
-      '<a href="index.html#orcamento" class="nav-cta">Solicitar orçamento ' + WA.icons.arrow + '</a>' +
+      '<a href="configurador.html" class="nav-cta">Solicitar orçamento ' + WA.icons.arrow + '</a>' +
       '<button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">' +
         '<span></span><span></span><span></span>' +
       '</button>' +
@@ -50,10 +51,11 @@ WA.renderNav = function (active) {
     '<div class="mobile-menu" id="mobile-menu">' +
       '<a href="index.html">Início</a>' +
       '<a href="produtos.html">Catálogo</a>' +
+      '<a href="configurador.html">Configurador</a>' +
       '<a href="depoimentos.html">Depoimentos</a>' +
       '<a href="index.html#sobre">Sobre</a>' +
       '<a href="index.html#contato">Contato</a>' +
-      '<a href="index.html#orcamento" class="nav-cta">Solicitar orçamento ' + WA.icons.arrow + '</a>' +
+      '<a href="configurador.html" class="nav-cta">Solicitar orçamento ' + WA.icons.arrow + '</a>' +
     '</div>';
   return nav;
 
@@ -86,6 +88,7 @@ WA.renderFooter = function () {
         '<ul>' +
           '<li><a href="index.html">Início</a></li>' +
           '<li><a href="produtos.html">Catálogo</a></li>' +
+          '<li><a href="configurador.html">Configurador</a></li>' +
           '<li><a href="depoimentos.html">Depoimentos</a></li>' +
           '<li><a href="index.html#orcamento">Solicitar orçamento</a></li>' +
         '</ul>' +
