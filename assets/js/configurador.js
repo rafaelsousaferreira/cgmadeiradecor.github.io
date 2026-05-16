@@ -70,6 +70,22 @@
     obs: ''
   };
 
+  // Pré-popula a partir de query string (vindo de links de outras páginas)
+  // Ex: /configurador.html?madeira=freijo
+  (function preFill() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var mad = params.get('madeira');
+      var tipo = params.get('tipo');
+      if (mad && MADEIRAS.some(function (x) { return x.id === mad; })) {
+        state.madeira = mad;
+      }
+      if (tipo && TIPOS.some(function (x) { return x.id === tipo; })) {
+        state.tipo = tipo;
+      }
+    } catch (e) { /* sem URLSearchParams, ignora */ }
+  })();
+
   // ============== CÁLCULO ==============
   function estimate() {
     var t = TIPOS.find(function (x) { return x.id === state.tipo; });
@@ -157,7 +173,7 @@
         var sel = state.madeira === m.id ? 'selected' : '';
         return '<button type="button" class="cfg-madeira ' + sel + '" data-madeira="' + m.id + '">' +
           '<div class="cfg-madeira-swatch" style="background:' + m.color + '">' +
-            woodSwatch() +
+            woodSwatch(m.id) +
           '</div>' +
           '<div class="cfg-madeira-info">' +
             '<div class="cfg-madeira-nome">' + m.nome + '</div>' +
@@ -447,9 +463,10 @@
       '<circle cx="32" cy="44" r="1.5" fill="currentColor"/>' +
       '</svg>';
   }
-  function woodSwatch() {
-    // veios horizontais simples no swatch
-    return '<svg viewBox="0 0 60 60" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+  function woodSwatch(seed) {
+    // Usa o helper global (textura variada por seed do nome da madeira).
+    return WA.woodSwatch ? WA.woodSwatch(seed || 'cfg-default') :
+      '<svg viewBox="0 0 60 60" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
       '<path d="M0 18 Q15 12 30 18 T60 18" stroke="rgba(0,0,0,0.25)" stroke-width="0.8" fill="none"/>' +
       '<path d="M0 32 Q15 26 30 32 T60 32" stroke="rgba(0,0,0,0.18)" stroke-width="0.7" fill="none"/>' +
       '<path d="M0 46 Q15 40 30 46 T60 46" stroke="rgba(0,0,0,0.22)" stroke-width="0.6" fill="none"/>' +

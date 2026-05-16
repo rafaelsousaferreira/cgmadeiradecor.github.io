@@ -335,6 +335,63 @@ function initYear() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
+/* ---------- SVG: TEXTURA DE MADEIRA ---------- */
+/**
+ * Gera SVG de textura de madeira para swatches. Determinístico por seed:
+ * mesma seed = mesma textura. Útil para diferenciar madeiras visualmente
+ * sem precisar de fotos reais (placeholder até subirem fotos).
+ *
+ * @param {string} seed - string que determina variação (ex: slug da madeira)
+ * @param {object} opts - { width, height, intensity (0-1), knots (0-3) }
+ */
+WA.woodSwatch = function (seed, opts) {
+  opts = opts || {};
+  var w = opts.width || 60;
+  var h = opts.height || 60;
+  var intensity = opts.intensity != null ? opts.intensity : 0.25;
+  var knots = opts.knots != null ? opts.knots : 1;
+
+  // PRNG simples (mulberry32) com seed determinística a partir da string
+  var hash = 2166136261;
+  for (var i = 0; i < (seed || '').length; i++) {
+    hash = (hash ^ seed.charCodeAt(i)) * 16777619 >>> 0;
+  }
+  function rnd() {
+    hash |= 0; hash = hash + 0x6D2B79F5 | 0;
+    var t = Math.imul(hash ^ hash >>> 15, 1 | hash);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  }
+
+  var paths = '';
+  // 4-6 veios horizontais com pequenas oscilações
+  var nGrains = 4 + Math.floor(rnd() * 3);
+  for (var g = 0; g < nGrains; g++) {
+    var y = (h / (nGrains + 1)) * (g + 1) + (rnd() - 0.5) * 4;
+    var amp = 2 + rnd() * 4;
+    var op = (intensity * (0.7 + rnd() * 0.6)).toFixed(2);
+    var sw = (0.5 + rnd() * 0.5).toFixed(2);
+    paths += '<path d="M0 ' + y.toFixed(1) +
+             ' Q' + (w * 0.25).toFixed(1) + ' ' + (y - amp).toFixed(1) +
+             ' ' + (w * 0.5).toFixed(1) + ' ' + y.toFixed(1) +
+             ' T' + w + ' ' + y.toFixed(1) +
+             '" stroke="rgba(0,0,0,' + op + ')" stroke-width="' + sw + '" fill="none"/>';
+  }
+  // Nós (knots) — manchas ovais escuras
+  for (var k = 0; k < knots; k++) {
+    var cx = (rnd() * 0.6 + 0.2) * w;
+    var cy = (rnd() * 0.6 + 0.2) * h;
+    var rx = 2 + rnd() * 3;
+    var ry = rx * (1.2 + rnd() * 0.6);
+    paths += '<ellipse cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) +
+             '" rx="' + rx.toFixed(1) + '" ry="' + ry.toFixed(1) +
+             '" fill="rgba(0,0,0,' + (intensity * 0.7).toFixed(2) + ')"/>';
+  }
+
+  return '<svg viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+    paths + '</svg>';
+};
+
 /* ---------- INIT ---------- */
 document.addEventListener('DOMContentLoaded', function () {
   initNav();

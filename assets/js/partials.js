@@ -39,8 +39,8 @@ WA.renderNav = function (active) {
         navLink('index.html',          'Início',       current === 'home') +
         navLink('produtos.html',       'Catálogo',     current === 'produtos') +
         navLink('configurador.html',   'Configurador', current === 'configurador') +
+        navLink('madeiras.html',       'Madeiras',     current === 'madeiras') +
         navLink('depoimentos.html',    'Depoimentos',  current === 'depoimentos') +
-        navLink('index.html#sobre',    'Sobre',        false) +
         navLink('index.html#contato',  'Contato',      false) +
       '</ul>' +
       '<a href="configurador.html" class="nav-cta">Solicitar orçamento ' + WA.icons.arrow + '</a>' +
@@ -52,6 +52,7 @@ WA.renderNav = function (active) {
       '<a href="index.html">Início</a>' +
       '<a href="produtos.html">Catálogo</a>' +
       '<a href="configurador.html">Configurador</a>' +
+      '<a href="madeiras.html">Madeiras</a>' +
       '<a href="depoimentos.html">Depoimentos</a>' +
       '<a href="index.html#sobre">Sobre</a>' +
       '<a href="index.html#contato">Contato</a>' +
@@ -89,6 +90,7 @@ WA.renderFooter = function () {
           '<li><a href="index.html">Início</a></li>' +
           '<li><a href="produtos.html">Catálogo</a></li>' +
           '<li><a href="configurador.html">Configurador</a></li>' +
+          '<li><a href="madeiras.html">Madeiras</a></li>' +
           '<li><a href="depoimentos.html">Depoimentos</a></li>' +
           '<li><a href="index.html#orcamento">Solicitar orçamento</a></li>' +
         '</ul>' +
