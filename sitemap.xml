@@ -42,6 +42,13 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://cgplanejados.com.br/galeria.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Páginas de produto (geradas a partir de productsDB) -->
   <url>
     <loc>https://cgplanejados.com.br/produto.html?id=1</loc>
