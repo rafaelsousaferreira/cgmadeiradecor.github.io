@@ -45,15 +45,15 @@
   <text x="80" y="290" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#a8552a" letter-spacing="4">CAMAÇARI · BAHIA · DESDE 2015</text>
 
   <!-- Frase principal -->
-  <text x="80" y="368" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-weight="400" fill="#2a1f17">Móveis em madeira</text>
-  <text x="80" y="448" font-family="Georgia, 'Times New Roman', serif" font-size="74" font-weight="500" font-style="italic" fill="#a8552a">feitos à mão.</text>
+  <text x="80" y="368" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="400" fill="#2a1f17">Madeira em pequenas</text>
+  <text x="80" y="438" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="500" font-style="italic" fill="#a8552a">peças com alma.</text>
 
   <!-- Linha separadora -->
-  <rect x="80" y="490" width="60" height="3" fill="#2a1f17"/>
+  <rect x="80" y="480" width="60" height="3" fill="#2a1f17"/>
 
   <!-- Subtítulo -->
-  <text x="80" y="528" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="500" fill="#4a3624">C&amp;G Planejados — Marcenaria e Decoração</text>
+  <text x="80" y="518" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="500" fill="#4a3624">C&amp;G Madeira Decor — Pequenos móveis e decoração</text>
 
   <!-- Domínio -->
-  <text x="80" y="572" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#7a6249" letter-spacing="2">CGPLANEJADOS.COM.BR</text>
+  <text x="80" y="562" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#7a6249" letter-spacing="2">CGMADEIRADECOR.COM.BR</text>
 </svg>
