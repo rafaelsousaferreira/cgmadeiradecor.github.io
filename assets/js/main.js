@@ -392,6 +392,122 @@ WA.woodSwatch = function (seed, opts) {
     paths + '</svg>';
 };
 
+
+/* ---------- COMPONENTE: SLIDER ANTES/DEPOIS ---------- */
+/**
+ * Transforma um elemento em slider de cortina (antes/depois).
+ * Espera HTML interno no formato:
+ *   <div class="ba"><div class="ba-before">...</div><div class="ba-after">...</div></div>
+ *
+ * Acessível: role="slider", arrastar com mouse/touch, ← → Home End no teclado.
+ *
+ * @param {HTMLElement} root - container .ba já com .ba-before e .ba-after dentro
+ * @param {object} opts - { initial: 50, labels: { before, after } }
+ */
+WA.makeBeforeAfter = function (root, opts) {
+  opts = opts || {};
+  if (!root || root.dataset.baInit === '1') return;
+  root.dataset.baInit = '1';
+
+  var before = root.querySelector('.ba-before');
+  var after  = root.querySelector('.ba-after');
+  if (!before || !after) return;
+
+  // Usa handle existente se já houver (ex: HTML pré-renderizado pela galeria.js).
+  // Caso contrário, cria um.
+  var handle = root.querySelector('.ba-handle');
+  if (!handle) {
+    handle = document.createElement('div');
+    handle.className = 'ba-handle';
+    handle.innerHTML =
+      '<div class="ba-handle-line"></div>' +
+      '<div class="ba-handle-knob" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<polyline points="9 18 3 12 9 6"/>' +
+          '<polyline points="15 6 21 12 15 18"/>' +
+        '</svg>' +
+      '</div>';
+    root.appendChild(handle);
+  }
+  // Atributos ARIA — adiciona mesmo em handles pré-existentes
+  handle.setAttribute('role', 'slider');
+  handle.setAttribute('tabindex', '0');
+  if (!handle.getAttribute('aria-label')) {
+    handle.setAttribute('aria-label', 'Arraste para revelar antes e depois');
+  }
+  handle.setAttribute('aria-valuemin', '0');
+  handle.setAttribute('aria-valuemax', '100');
+
+  // Insere labels se não existem ainda
+  if (!before.querySelector('.ba-label') && !root.querySelector('.ba-label-before')) {
+    var labels = opts.labels || { before: 'Antes', after: 'Depois' };
+    var labBefore = document.createElement('span');
+    labBefore.className = 'ba-label ba-label-before';
+    labBefore.textContent = labels.before;
+    before.appendChild(labBefore);
+    var labAfter = document.createElement('span');
+    labAfter.className = 'ba-label ba-label-after';
+    labAfter.textContent = labels.after;
+    after.appendChild(labAfter);
+  }
+
+  var pct = Math.max(0, Math.min(100, opts.initial != null ? opts.initial : 50));
+  apply(pct);
+
+  function apply(p) {
+    pct = Math.max(0, Math.min(100, p));
+    // Mostra "antes" do lado esquerdo (clip-path do "after" começa de pct%)
+    after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+    handle.style.left = pct + '%';
+    handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+    handle.setAttribute('aria-valuetext', Math.round(pct) + '% revelado depois');
+  }
+
+  function pctFromEvent(ev) {
+    var rect = root.getBoundingClientRect();
+    var x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - rect.left;
+    return Math.max(0, Math.min(100, (x / rect.width) * 100));
+  }
+
+  var dragging = false;
+
+  function start(ev) {
+    dragging = true;
+    root.classList.add('ba-dragging');
+    if (ev.cancelable) ev.preventDefault();
+    apply(pctFromEvent(ev));
+  }
+  function move(ev) {
+    if (!dragging) return;
+    if (ev.cancelable) ev.preventDefault();
+    apply(pctFromEvent(ev));
+  }
+  function end() {
+    dragging = false;
+    root.classList.remove('ba-dragging');
+  }
+
+  root.addEventListener('mousedown',  start);
+  document.addEventListener('mousemove', move);
+  document.addEventListener('mouseup',   end);
+
+  root.addEventListener('touchstart', start, { passive: false });
+  document.addEventListener('touchmove', move, { passive: false });
+  document.addEventListener('touchend', end);
+
+  handle.addEventListener('keydown', function (e) {
+    var step = e.shiftKey ? 10 : 5;
+    switch (e.key) {
+      case 'ArrowLeft':  apply(pct - step); e.preventDefault(); break;
+      case 'ArrowRight': apply(pct + step); e.preventDefault(); break;
+      case 'Home':       apply(0);          e.preventDefault(); break;
+      case 'End':        apply(100);        e.preventDefault(); break;
+    }
+  });
+
+  return { setPct: apply, getPct: function () { return pct; } };
+};
+
 /* ---------- INIT ---------- */
 document.addEventListener('DOMContentLoaded', function () {
   initNav();

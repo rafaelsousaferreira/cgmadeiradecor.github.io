@@ -40,8 +40,8 @@ WA.renderNav = function (active) {
         navLink('produtos.html',       'Catálogo',     current === 'produtos') +
         navLink('configurador.html',   'Configurador', current === 'configurador') +
         navLink('madeiras.html',       'Madeiras',     current === 'madeiras') +
+        navLink('galeria.html',        'Galeria',      current === 'galeria') +
         navLink('depoimentos.html',    'Depoimentos',  current === 'depoimentos') +
-        navLink('index.html#contato',  'Contato',      false) +
       '</ul>' +
       '<a href="configurador.html" class="nav-cta">Solicitar orçamento ' + WA.icons.arrow + '</a>' +
       '<button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">' +
@@ -53,6 +53,7 @@ WA.renderNav = function (active) {
       '<a href="produtos.html">Catálogo</a>' +
       '<a href="configurador.html">Configurador</a>' +
       '<a href="madeiras.html">Madeiras</a>' +
+      '<a href="galeria.html">Galeria</a>' +
       '<a href="depoimentos.html">Depoimentos</a>' +
       '<a href="index.html#sobre">Sobre</a>' +
       '<a href="index.html#contato">Contato</a>' +
@@ -91,6 +92,7 @@ WA.renderFooter = function () {
           '<li><a href="produtos.html">Catálogo</a></li>' +
           '<li><a href="configurador.html">Configurador</a></li>' +
           '<li><a href="madeiras.html">Madeiras</a></li>' +
+          '<li><a href="galeria.html">Galeria</a></li>' +
           '<li><a href="depoimentos.html">Depoimentos</a></li>' +
           '<li><a href="index.html#orcamento">Solicitar orçamento</a></li>' +
         '</ul>' +
