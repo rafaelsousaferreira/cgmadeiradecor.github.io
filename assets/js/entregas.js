@@ -13,32 +13,32 @@
 
   var ENTREGAS = [
     // Bahia — concentração local
-    { cidade: 'Camaçari',        uf: 'BA', lat: -12.6997, lng: -38.3239, peca: 'Mesa de jantar 6 lugares', madeira: 'Freijó',   data: '2025-12-10' },
-    { cidade: 'Vilas de Abrantes',uf: 'BA', lat: -12.7700, lng: -38.2900, peca: 'Cozinha planejada',       madeira: 'Carvalho', data: '2025-11-22' },
-    { cidade: 'Lauro de Freitas',uf: 'BA', lat: -12.8944, lng: -38.3221, peca: 'Estante painel 3,20m',    madeira: 'Carvalho', data: '2026-01-15' },
+    { cidade: 'Camaçari',        uf: 'BA', lat: -12.6997, lng: -38.3239, peca: 'Mesinha de canto entalhada', madeira: 'Freijó',   data: '2025-12-10' },
+    { cidade: 'Vilas de Abrantes',uf: 'BA', lat: -12.7700, lng: -38.2900, peca: 'Conjunto de tábuas em Carvalho', madeira: 'Carvalho', data: '2025-11-22' },
+    { cidade: 'Lauro de Freitas',uf: 'BA', lat: -12.8944, lng: -38.3221, peca: 'Trio de prateleiras suspensas', madeira: 'Carvalho', data: '2026-01-15' },
     { cidade: 'Salvador',        uf: 'BA', lat: -12.9714, lng: -38.5014, peca: 'Cadeira de balanço (restauração)', madeira: 'Cedro', data: '2025-09-08' },
-    { cidade: 'Salvador',        uf: 'BA', lat: -12.9714, lng: -38.5014, peca: 'Aparador em demolição',   madeira: 'Peroba demolição', data: '2026-02-03' },
-    { cidade: 'Feira de Santana',uf: 'BA', lat: -12.2576, lng: -38.9663, peca: 'Mesa redonda restaurada', madeira: 'Imbuia',   data: '2025-10-19' },
-    { cidade: 'Ilhéus',          uf: 'BA', lat: -14.7935, lng: -39.0463, peca: 'Banheiro com bancada',    madeira: 'Peroba demolição', data: '2025-08-30' },
-    { cidade: 'Porto Seguro',    uf: 'BA', lat: -16.4495, lng: -39.0648, peca: 'Banco-baú sob escada',    madeira: 'Carvalho', data: '2026-02-14' },
+    { cidade: 'Salvador',        uf: 'BA', lat: -12.9714, lng: -38.5014, peca: 'Bandeja de servir em demolição', madeira: 'Peroba demolição', data: '2026-02-03' },
+    { cidade: 'Feira de Santana',uf: 'BA', lat: -12.2576, lng: -38.9663, peca: 'Castiçais de mesa (par)',  madeira: 'Imbuia',   data: '2025-10-19' },
+    { cidade: 'Ilhéus',          uf: 'BA', lat: -14.7935, lng: -39.0463, peca: 'Suporte para plantas triplo', madeira: 'Peroba demolição', data: '2025-08-30' },
+    { cidade: 'Porto Seguro',    uf: 'BA', lat: -16.4495, lng: -39.0648, peca: 'Banco rústico decorativo', madeira: 'Carvalho', data: '2026-02-14' },
 
     // Nordeste vizinho
-    { cidade: 'Aracaju',         uf: 'SE', lat: -10.9472, lng: -37.0731, peca: 'Dormitório planejado',    madeira: 'Freijó',   data: '2025-11-05' },
-    { cidade: 'Recife',          uf: 'PE', lat: -8.0476,  lng: -34.8770, peca: 'Estante para biblioteca', madeira: 'Imbuia',   data: '2025-12-28' },
-    { cidade: 'João Pessoa',     uf: 'PB', lat: -7.1195,  lng: -34.8450, peca: 'Conjunto mesa + cadeiras',madeira: 'Freijó',   data: '2026-01-08' },
-    { cidade: 'Natal',           uf: 'RN', lat: -5.7945,  lng: -35.2110, peca: 'Aparador autoral',        madeira: 'Cedro',    data: '2025-10-02' },
-    { cidade: 'Fortaleza',       uf: 'CE', lat: -3.7327,  lng: -38.5267, peca: 'Cozinha planejada compacta', madeira: 'Eucalipto', data: '2025-09-18' },
+    { cidade: 'Aracaju',         uf: 'SE', lat: -10.9472, lng: -37.0731, peca: 'Mesinha lateral com gaveta',   madeira: 'Freijó',   data: '2025-11-05' },
+    { cidade: 'Recife',          uf: 'PE', lat: -8.0476,  lng: -34.8770, peca: 'Nicho duplo para livros',     madeira: 'Imbuia',   data: '2025-12-28' },
+    { cidade: 'João Pessoa',     uf: 'PB', lat: -7.1195,  lng: -34.8450, peca: 'Banqueta torneada',           madeira: 'Freijó',   data: '2026-01-08' },
+    { cidade: 'Natal',           uf: 'RN', lat: -5.7945,  lng: -35.2110, peca: 'Vaso decorativo autoral',     madeira: 'Cedro',    data: '2025-10-02' },
+    { cidade: 'Fortaleza',       uf: 'CE', lat: -3.7327,  lng: -38.5267, peca: 'Vaso de gesso e luminária',   madeira: 'Eucalipto', data: '2025-09-18' },
 
     // Sudeste
-    { cidade: 'São Paulo',       uf: 'SP', lat: -23.5505, lng: -46.6333, peca: 'Mesa de centro autoral',  madeira: 'Imbuia',   data: '2026-02-22' },
-    { cidade: 'São Paulo',       uf: 'SP', lat: -23.5505, lng: -46.6333, peca: 'Escrivaninha embutida',   madeira: 'Carvalho', data: '2025-11-12' },
-    { cidade: 'Rio de Janeiro',  uf: 'RJ', lat: -22.9068, lng: -43.1729, peca: 'Painel de TV em demolição', madeira: 'Peroba demolição', data: '2025-12-15' },
-    { cidade: 'Belo Horizonte',  uf: 'MG', lat: -19.9167, lng: -43.9345, peca: 'Mesa de jantar 8 lugares', madeira: 'Freijó',   data: '2026-01-25' },
+    { cidade: 'São Paulo',       uf: 'SP', lat: -23.5505, lng: -46.6333, peca: 'Mesa de centro pequena (50cm)', madeira: 'Imbuia',   data: '2026-02-22' },
+    { cidade: 'São Paulo',       uf: 'SP', lat: -23.5505, lng: -46.6333, peca: 'Móbile de teto em madeira',    madeira: 'Carvalho', data: '2025-11-12' },
+    { cidade: 'Rio de Janeiro',  uf: 'RJ', lat: -22.9068, lng: -43.1729, peca: 'Quadro/painel decorativo (3 peças)', madeira: 'Peroba demolição', data: '2025-12-15' },
+    { cidade: 'Belo Horizonte',  uf: 'MG', lat: -19.9167, lng: -43.9345, peca: 'Casa de pássaro decorativa',  madeira: 'Freijó',   data: '2026-01-25' },
 
     // Centro-oeste & Sul
-    { cidade: 'Brasília',        uf: 'DF', lat: -15.7942, lng: -47.8822, peca: 'Estante divisor de ambiente', madeira: 'Carvalho', data: '2025-10-30' },
-    { cidade: 'Curitiba',        uf: 'PR', lat: -25.4284, lng: -49.2733, peca: 'Aparador em Imbuia',       madeira: 'Imbuia',   data: '2026-02-08' },
-    { cidade: 'Porto Alegre',    uf: 'RS', lat: -30.0346, lng: -51.2177, peca: 'Cabeceira sob medida',     madeira: 'Freijó',   data: '2025-08-22' }
+    { cidade: 'Brasília',        uf: 'DF', lat: -15.7942, lng: -47.8822, peca: 'Organizador de escritório',   madeira: 'Carvalho', data: '2025-10-30' },
+    { cidade: 'Curitiba',        uf: 'PR', lat: -25.4284, lng: -49.2733, peca: 'Castiçal alto em Imbuia',     madeira: 'Imbuia',   data: '2026-02-08' },
+    { cidade: 'Porto Alegre',    uf: 'RS', lat: -30.0346, lng: -51.2177, peca: 'Mesinha lateral redonda',     madeira: 'Freijó',   data: '2025-08-22' }
   ];
 
   // ============== PROJEÇÃO LAT/LNG → SVG ==============

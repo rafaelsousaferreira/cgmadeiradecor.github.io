@@ -1,5 +1,5 @@
 /* =====================================================================
-   C&G PLANEJADOS — seo.js
+   C&G MADEIRA DECOR — seo.js
    Injeta JSON-LD estruturado dinâmico:
    - Product schema em produto.html (lê do productsDB)
    - ItemList schema em produtos.html (lista catálogo inteiro)
@@ -9,7 +9,7 @@
 'use strict';
 
 (function () {
-  var SITE = 'https://cgplanejados.com.br';
+  var SITE = 'https://cgmadeiradecor.com.br';
 
   function inject(json) {
     var s = document.createElement('script');
@@ -47,7 +47,7 @@
       'description': p.descricao,
       'image': imageUrls,
       'sku': p.sku || ('CGP-' + p.id),
-      'brand': { '@type': 'Brand', 'name': 'C&G Planejados' },
+      'brand': { '@type': 'Brand', 'name': 'C&G Madeira Decor' },
       'category': WA.getCategoria(p.categoria),
       'offers': {
         '@type': 'Offer',
@@ -56,7 +56,7 @@
         'price': p.preco.toFixed(2),
         'availability': availability,
         'itemCondition': 'https://schema.org/NewCondition',
-        'seller': { '@type': 'Organization', 'name': 'C&G Planejados' },
+        'seller': { '@type': 'Organization', 'name': 'C&G Madeira Decor' },
         'areaServed': { '@type': 'Country', 'name': 'BR' }
       }
     };
@@ -89,7 +89,7 @@
     inject({
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      'name': 'Catálogo C&G Planejados',
+      'name': 'Catálogo C&G Madeira Decor',
       'numberOfItems': items.length,
       'itemListElement': items
     });
@@ -119,14 +119,14 @@
           'bestRating': 5,
           'worstRating': 1
         },
-        'itemReviewed': { '@type': 'Product', 'name': t.produto, 'brand': 'C&G Planejados' }
+        'itemReviewed': { '@type': 'Product', 'name': t.produto, 'brand': 'C&G Madeira Decor' }
       };
     });
     var avg = window.testimonialsDB.reduce(function (a, t) { return a + t.avaliacao; }, 0) / window.testimonialsDB.length;
     inject({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      'name': 'C&G Planejados',
+      'name': 'C&G Madeira Decor',
       'url': SITE,
       'aggregateRating': {
         '@type': 'AggregateRating',

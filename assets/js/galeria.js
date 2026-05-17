@@ -11,14 +11,14 @@
 
   var PROJETOS = [
     {
-      id: 'cozinha-vilas',
-      titulo: 'Cozinha de família que cabia tudo, menos espaço.',
-      cliente: 'Família Souza, Vilas de Abrantes',
-      categoria: 'Reforma de cozinha',
-      tempo: '6 semanas',
+      id: 'mesinha-canto',
+      titulo: 'A mesinha que ganhou o canto do sofá.',
+      cliente: 'Apartamento em Vilas de Abrantes',
+      categoria: 'Mesinha lateral',
+      tempo: '2 semanas',
       madeira: 'Freijó',
       madeira_id: 'freijo',
-      historia: 'A cozinha tinha 30 anos de uso — armário branco descascando, balcão muito alto, gaveteiro emperrado. A família queria preservar a planta, mas ganhar espaço de armazenamento e modernizar sem ficar "frio". Refizemos tudo em Freijó com puxadores discretos, bancada generosa e iluminação embaixo dos armários superiores.',
+      historia: 'O canto direito do sofá vivia recebendo copo no chão e revista empilhada. A cliente queria uma mesinha pequena, alta o suficiente pra um copo, baixa o suficiente pra não dominar a sala. Fizemos em Freijó com tampo redondo de 35 cm, pé central torneado, e uma gavetinha quase invisível embaixo do tampo pra esconder controle remoto e fone.',
       antes: cozinhaAntes,
       depois: cozinhaDepois
     },
@@ -35,14 +35,14 @@
       depois: mesaDepois
     },
     {
-      id: 'dormitorio-planejado',
-      titulo: 'Quarto onde a roupa morava em caixas.',
-      cliente: 'Apartamento em Pituba',
-      categoria: 'Dormitório planejado',
-      tempo: '5 semanas',
-      madeira: 'Carvalho + laca cinza',
+      id: 'trio-prateleiras',
+      titulo: 'Três prateleiras que organizaram uma vida.',
+      cliente: 'Sala de estar em Pituba',
+      categoria: 'Prateleiras decorativas',
+      tempo: '2 semanas',
+      madeira: 'Carvalho',
       madeira_id: 'carvalho',
-      historia: 'Casal jovem, apartamento alugado, queria um guarda-roupa que pudesse ir junto pra próxima casa. Projeto modular em Carvalho com módulos independentes — gaveteiro, cabideiro, prateleira — todos parafusados entre si. Quando mudarem, desmonta e remonta. O preto fosco do puxador foi escolha do casal pra contrastar com o veio da madeira.',
+      historia: 'Cliente tinha livros, plantas pequenas e uns objetos afetivos sem lugar. Queria algo decorativo, não uma estante grande. Fizemos um trio de prateleiras suspensas em Carvalho, com profundidades diferentes (15, 20 e 25 cm) montadas em altura escalonada na parede. Pequeno detalhe: a fixação é invisível, parecem flutuar.',
       antes: dormAntes,
       depois: dormDepois
     },
@@ -59,26 +59,26 @@
       depois: cadeiraDepois
     },
     {
-      id: 'estante-painel',
-      titulo: 'Parede que pedia presença.',
-      cliente: 'Sala de estar, Itapuã',
-      categoria: 'Estante painel',
-      tempo: '5 semanas',
-      madeira: 'Carvalho',
-      madeira_id: 'carvalho',
-      historia: 'Sala com pé-direito alto, parede principal totalmente vazia. Cliente queria algo que ancorasse o ambiente sem virar móvel comum de TV. Fizemos um painel-estante de 3,20m em Carvalho com prateleiras assimétricas — algumas profundas pra livros, outras rasas pra objetos. TV ficou embutida num nicho central.',
+      id: 'castical-imbuia',
+      titulo: 'Castiçais que viraram presença na mesa.',
+      cliente: 'Sala de jantar, Itapuã',
+      categoria: 'Peça decorativa autoral',
+      tempo: '2 semanas',
+      madeira: 'Imbuia',
+      madeira_id: 'imbuia',
+      historia: 'Cliente queria peças decorativas em Imbuia pra uma mesa de jantar grande, sem usar prata ou vidro. Desenhamos um trio de castiçais altos (35, 28 e 22 cm) em Imbuia maciça, torneados manualmente. A escuridão natural da madeira contrasta com qualquer toalha clara, e dá uma presença escultural na mesa mesmo sem velas acesas.',
       antes: estanteAntes,
       depois: estanteDepois
     },
     {
-      id: 'banheiro-demolicao',
-      titulo: 'Banheiro que ganhou alma de madeira.',
-      cliente: 'Banheiro suíte, Buraquinho',
-      categoria: 'Bancada sob medida',
-      tempo: '4 semanas',
+      id: 'bandeja-demolicao',
+      titulo: 'Uma bandeja com 80 anos de história visível.',
+      cliente: 'Cozinha em Buraquinho',
+      categoria: 'Peça em demolição',
+      tempo: '2 semanas',
       madeira: 'Peroba de demolição',
       madeira_id: 'demolicao',
-      historia: 'Banheiro tinha bancada de granito antiga e armário pré-fabricado de melamínico. Trocamos pela bancada em Peroba de demolição com tratamento especial pra umidade, cuba branca embutida. As marcas naturais da madeira (furos antigos de prego, mudanças de tom) ficaram visíveis de propósito.',
+      historia: 'A cliente queria uma bandeja pra servir café da manhã na cama nos fins de semana — mas algo que tivesse cara, não bandeja de loja. Fizemos em Peroba de demolição (tábua que veio de uma casa antiga em Salvador), com puxadores laterais em corda náutica e bordas levemente erguidas. As marcas do tempo na madeira ficaram visíveis de propósito.',
       antes: banheiroAntes,
       depois: banheiroDepois
     }
@@ -224,7 +224,7 @@
       '<line x1="400" y1="0" x2="400" y2="50" stroke="#2a1f17" stroke-width="1.5"/>' +
       '<rect x="380" y="50" width="40" height="6" fill="#2a1f17"/>' +
       '<rect x="385" y="56" width="30" height="14" fill="#c89456"/>',
-      'Depois: cozinha planejada em Freijó com iluminação embutida'
+      'Depois:  em Freijó com iluminação embutida'
     );
   }
 

@@ -1,5 +1,5 @@
 /* =====================================================================
-   C&G PLANEJADOS — partials.js
+   C&G MADEIRA DECOR — partials.js
    Componentes HTML reutilizáveis (nav, footer, fab) injetados via JS.
    Mantém HTML das páginas enxuto e evita divergência entre elas.
    ===================================================================== */
@@ -31,9 +31,9 @@ WA.renderNav = function (active) {
   var current = active || 'home';
   var nav =
     '<nav class="nav" aria-label="Menu principal">' +
-      '<a href="index.html" class="brand" aria-label="C&amp;G Planejados — página inicial">' +
+      '<a href="index.html" class="brand" aria-label="C&amp;G Madeira Decor — página inicial">' +
         '<span class="brand-mark">C&amp;G</span>' +
-        '<span class="brand-text">C&amp;G Planejados<small>Marcenaria e Decoração</small></span>' +
+        '<span class="brand-text">C&amp;G Madeira Decor<small>Pequenos móveis e decoração</small></span>' +
       '</a>' +
       '<ul class="nav-links">' +
         navLink('index.html',          'Início',       current === 'home') +
@@ -83,7 +83,7 @@ WA.renderFooter = function () {
       '<div class="foot-brand">' +
         '<div class="brand">' +
           '<span class="brand-mark">C&amp;G</span>' +
-          '<span class="brand-text">C&amp;G Planejados<small>Marcenaria e Decoração</small></span>' +
+          '<span class="brand-text">C&amp;G Madeira Decor<small>Pequenos móveis e decoração</small></span>' +
         '</div>' +
         '<p>Móveis e peças em madeira maciça, feitos sob medida no nosso ateliê em Camaçari, Bahia.</p>' +
       '</div>' +
@@ -111,8 +111,8 @@ WA.renderFooter = function () {
       '</div>' +
     '</div>' +
     '<div class="foot-bottom">' +
-      '<span>© <span id="year"></span> C&amp;G Planejados — Todos os direitos reservados.</span>' +
-      '<span>Marcenaria sob medida em Camaçari, Bahia.</span>' +
+      '<span>© <span id="year"></span> C&amp;G Madeira Decor — Todos os direitos reservados.</span>' +
+      '<span>Pequenos móveis e decoração em madeira maciça, de Camaçari para todo o Brasil.</span>' +
     '</div>' +
   '</footer>';
 };

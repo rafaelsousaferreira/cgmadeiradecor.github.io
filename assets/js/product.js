@@ -1,5 +1,5 @@
 /* =====================================================================
-   C&G PLANEJADOS — product.js
+   C&G MADEIRA DECOR — product.js
    Página de detalhe de produto.
    ===================================================================== */
 'use strict';
@@ -30,13 +30,13 @@
   setMeta('name', 'description', product.descricao.slice(0, 160));
 
   // Atualiza Open Graph + Twitter Cards dinamicamente
-  var canonicalUrl = 'https://cgplanejados.com.br/produto.html?id=' + product.id;
+  var canonicalUrl = 'https://cgmadeiradecor.com.br/produto.html?id=' + product.id;
   setMeta('property', 'og:title',       product.nome + ' — ' + WA.config.businessName);
   setMeta('property', 'og:description', product.descricao.slice(0, 200));
   setMeta('property', 'og:url',         canonicalUrl);
   if (product.imagens && product.imagens[0]) {
     var imgUrl = product.imagens[0];
-    if (!/^https?:\/\//.test(imgUrl)) imgUrl = 'https://cgplanejados.com.br/' + imgUrl;
+    if (!/^https?:\/\//.test(imgUrl)) imgUrl = 'https://cgmadeiradecor.com.br/' + imgUrl;
     setMeta('property', 'og:image', imgUrl);
     setMeta('name', 'twitter:image', imgUrl);
   }

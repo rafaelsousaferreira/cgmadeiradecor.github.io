@@ -16,20 +16,20 @@
   // é uma estimativa honesta para qualificar lead.
 
   var TIPOS = [
-    { id: 'mesa',       nome: 'Mesa',                  base: 1800, glyph: glyphMesa,    desc: 'Jantar, escrivaninha, café'  },
-    { id: 'estante',    nome: 'Estante / Prateleira',  base: 1400, glyph: glyphEstante, desc: 'Livros, decoração, nichos'   },
-    { id: 'cozinha',    nome: 'Cozinha planejada',     base: 6000, glyph: glyphCozinha, desc: 'Armários e gabinete completos' },
-    { id: 'dormitorio', nome: 'Dormitório planejado',  base: 5500, glyph: glyphDorm,    desc: 'Guarda-roupa, cabeceira, cômodas' },
-    { id: 'banco',      nome: 'Banco / Balcão / Bar',  base: 1600, glyph: glyphBanco,   desc: 'Bancos, balcões, bar'      },
-    { id: 'outro',      nome: 'Outro tipo',            base: 1500, glyph: glyphOutro,   desc: 'Conte na sua mensagem'      }
+    { id: 'mesa-lateral',  nome: 'Mesinha / lateral',    base: 480,  glyph: glyphMesa,    desc: 'Mesa de café, lateral, cabeceira' },
+    { id: 'prateleira',    nome: 'Prateleira / Nicho',   base: 280,  glyph: glyphEstante, desc: 'Decorativa, suspensa, em conjunto' },
+    { id: 'banco',         nome: 'Banco / Banqueta',     base: 420,  glyph: glyphBanco,   desc: 'Apoio, decoração ou rústico' },
+    { id: 'tabua',         nome: 'Tábua / Suporte',      base: 180,  glyph: glyphTabua,   desc: 'Corte, serviço, organizadores' },
+    { id: 'decorativa',    nome: 'Peça decorativa',      base: 220,  glyph: glyphDecor,   desc: 'Vasos, castiçais, esculturas, móbiles' },
+    { id: 'outro',         nome: 'Outra peça',           base: 350,  glyph: glyphOutro,   desc: 'Conte na sua mensagem' }
   ];
 
   // Faixas de tamanho — multiplicador aplicado sobre o base
   var TAMANHOS = [
-    { id: 'pequeno', nome: 'Pequeno',     mult: 0.8, hint: 'Até 1 m no maior lado'    },
-    { id: 'medio',   nome: 'Médio',       mult: 1.0, hint: 'Entre 1 m e 2 m'          },
-    { id: 'grande',  nome: 'Grande',      mult: 1.4, hint: 'Entre 2 m e 3 m'          },
-    { id: 'extra',   nome: 'Muito grande', mult: 1.8, hint: 'Mais de 3 m, ou conjunto' }
+    { id: 'pequeno', nome: 'Pequeno',  mult: 0.7, hint: 'Até 40 cm'     },
+    { id: 'medio',   nome: 'Médio',    mult: 1.0, hint: '40 a 80 cm'    },
+    { id: 'grande',  nome: 'Grande',   mult: 1.5, hint: '80 cm a 1,2 m' },
+    { id: 'extra',   nome: 'Conjunto', mult: 2.2, hint: 'Trio ou maior' }
   ];
 
   var MADEIRAS = [
@@ -430,22 +430,21 @@
       '<line x1="14" y1="46" x2="50" y2="46"/>' +
       '</svg>';
   }
-  function glyphCozinha() {
+  function glyphTabua() {
     return '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<rect x="8" y="10" width="20" height="22" rx="1"/>' +
-      '<rect x="32" y="10" width="24" height="22" rx="1"/>' +
-      '<rect x="8" y="36" width="48" height="18" rx="1"/>' +
-      '<circle cx="18" cy="45" r="1.5" fill="currentColor"/>' +
-      '<circle cx="40" cy="45" r="1.5" fill="currentColor"/>' +
+      // Tábua de corte com alça e veios
+      '<rect x="12" y="14" width="40" height="38" rx="2"/>' +
+      '<circle cx="48" cy="20" r="1.5" fill="currentColor"/>' +
+      '<path d="M16 28h32M16 36h32M16 44h32" opacity="0.4"/>' +
       '</svg>';
   }
-  function glyphDorm() {
+  function glyphDecor() {
     return '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<rect x="6" y="22" width="52" height="22" rx="2"/>' +
-      '<path d="M6 30h52"/>' +
-      '<rect x="14" y="18" width="36" height="6" rx="1"/>' +
-      '<line x1="10" y1="44" x2="10" y2="50"/>' +
-      '<line x1="54" y1="44" x2="54" y2="50"/>' +
+      // Vaso com hastes/folhas
+      '<path d="M20 40 L20 52 Q20 56 24 56 L40 56 Q44 56 44 52 L44 40 Z"/>' +
+      '<line x1="32" y1="40" x2="32" y2="20"/>' +
+      '<path d="M32 30 Q26 26 22 22"/>' +
+      '<path d="M32 24 Q38 20 42 18"/>' +
       '</svg>';
   }
   function glyphBanco() {
